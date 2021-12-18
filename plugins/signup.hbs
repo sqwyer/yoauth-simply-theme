@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+        
+        * {
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .box {
+           margin: 3% auto;
+           width: 25vw;
+           border: 1px solid #c4c4c4;
+           display: block;
+           padding:2%;
+           border-radius:8px;
+           box-shadow: 0px 2px 10px 3px rgba(0,0,0,0.1);
+        }
+
+        input, label, .btn {
+            display: block;
+            width:100%;
+            font-weight: 700;
+            font-size: 110%;
+        }
+
+        input, .btn {
+            padding: 4%;
+            border-radius: 4px;
+        }
+
+        input::placeholder {
+            color:#999999;
+        }
+
+        input {
+            font-size: 95%;
+            margin-top: 2%;
+            border: 1px solid #c4c4c4;
+            background:#fff;
+            outline:none!important;
+            font-weight: bolder;
+            color: #505050;
+            transition: 0.2s border;
+        }
+
+        input:focus {
+            border: 1px solid #4285F4;
+            color: #4285F4;
+        }
+
+        input:focus::placeholder {
+            opacity: 0.5;
+        }
+
+        label {
+            color: #707070;
+        }
+
+        .btn {
+            padding: 4% 0 4% 0;
+            border: 1px solid #4285F4;
+            background: #4285F4;
+            color: #fff;
+            outline: none!important;
+            cursor: pointer;
+        }
+
+        p {
+            color: #8F8F8F;
+            font-weight: 600;
+            font-size: 90%;
+        }
+
+        a {
+            color: #4285F4;
+            text-decoration: underline;
+        }
+
+        #err {
+            position: fixed;
+            border-radius: 4px;
+            width: 25vw;
+
+            left: 50%;
+            transform: translate(-50%, 0);
+            bottom: 1%;
+            padding: 0.5% 0 0.5% 0;
+            text-align: center;
+            background: #191919;
+            color:#fff;
+
+            transition: 0.2s;
+        }
+
+        #close {
+            float: right;
+            cursor: pointer;
+            margin-right: 1vw;
+        }
+    </style>
+</head>
+<body>
+    <form class="box" action="{{path}}/signup" method="POST">
+        <label>Email</label>
+        <input name="email" type="email" placeholder="johndoe@gmail.com">
+
+        <br />
+
+        {{#each signupCustomFields}}
+            <label>{{label}}</label>
+            <input name="{{name}}" type="{{type}}" placeholder="{{placeholder}}">
+
+            <br />
+        {{/each}}
+        
+        <label>Password</label>
+        <input name="password" type="password" placeholder="••••••••">
+
+        <br />
+
+        <button class="btn" type="submit">Continue</button>
+
+        <br />
+        <p>Already have an account? <a href="{{path}}/login">Log in</a></p>
+    </form>
+
+    {{#if errorMessage}}
+        <div id="err">{{errorMessage}}<span id="close" onclick="document.getElementById('err').remove()">&times;</span></div>
+    {{/if}}
+</body>
+</html>

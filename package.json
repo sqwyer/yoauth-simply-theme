@@ -1,0 +1,9 @@
+{
+  "name": "yoauth-simply-theme",
+  "version": "1.0.0",
+  "description": "A simple but effective yoauth theme.",
+  "main": "index.js",
+  "keywords": ["auth", "express", "passport", "hbs", "yoauth", "theme"],
+  "author": "Sawyer",
+  "license": "MIT"
+}
