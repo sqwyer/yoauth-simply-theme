@@ -133,7 +133,7 @@
     </style>
 </head>
 <body>
-    <form class="box" action="{{path}}/login" method="POST">
+    <form class="box" action="{{options.path}}/login" method="POST">
         <label>Email</label>
         <input name="email" type="email" placeholder="johndoe@gmail.com">
 
@@ -147,7 +147,7 @@
         <button class="btn" type="submit">Continue</button>
 
         <br />
-        <p>Don't have an account? <a href="{{path}}/signup">Sign Up</a></p>
+        <p>Don't have an account? <a href="{{options.path}}/signup">Sign Up</a></p>
     </form>
 
     {{#if errorMessage}}
